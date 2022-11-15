@@ -2,6 +2,8 @@ const { response } = require('express');
 const express = require('express');
 
 const app = express();
+const cors = require('cors');
+app.use(cors());
 
 // define temporary data jason here(to be replaced by DB)
 let data = [
