@@ -1,24 +1,10 @@
-const { response } = require('express');
-const express = require('express');
-const app = express();
-const cors = require('cors');
-app.use(cors());
+const http = require('http');
+const app = require('./app'); // the actual Express application
+const config = require('./utils/config');
+const logger = require('./utils/logger');
 
-// define temporary data jason here(to be replaced by DB)
-let data = [
-  {
-    id: 1,
-    name: 'samuel nzekwe',
-    address: 'oranienstrs 204 Berlin',
-  },
-];
+const server = http.createServer(app);
 
-//get all data
-app.get('/api/users', (request, response) => {
-  response.json(data);
-});
-
-const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+server.listen(config.PORT, () => {
+  logger.info(`Server running on port ${config.PORT}`);
 });
