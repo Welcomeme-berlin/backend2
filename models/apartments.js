@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const apartmentSchema = new mongoose.Schema({
   detail: {
     type: String,
-    required: true,
+    required: false,
     minlength: 30,
   },
   date: {
@@ -12,12 +12,12 @@ const apartmentSchema = new mongoose.Schema({
   },
   state: {
     type: String,
-    required: true,
+    required: false,
     minlength: 5,
   },
   street: {
     type: String,
-    required: true,
+    required: false,
     minlength: 10,
   },
   zipcode: {
@@ -27,12 +27,8 @@ const apartmentSchema = new mongoose.Schema({
     maxlength: 5,
   },
   anmeldung: Boolean,
-  deposite: {
-    type: Number,
-  },
-  rent: {
-    type: Number,
-  },
+  deposite: Number,
+  rent: Number,
 });
 
 apartmentSchema.set('toJSON', {

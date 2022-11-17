@@ -2,6 +2,10 @@ POST  http://localhost:3001/api/apartments
 Content-Type: application/json
 
 {
-    "content": "I am Samuel Nzekwe",
-    "important": false
+    "detail": "A very good apartment in Berlin available from the 20th of october 2030, please pay now or pay no more",
+    "state": "Berlin",
+    "street": "Oranienplatq",
+    "zipcode": 10999,
+    "rent": 25000,
+    "anmeldung": false
 }
