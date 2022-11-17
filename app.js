@@ -4,7 +4,7 @@ const cors = require('cors');
 const config = require('./utils/config');
 
 const app = express();
-const notesRouter = require('./controllers/apartments'); // routes to resources  SHOULD NOT BE NOTES
+const apartmentsRouter = require('./controllers/apartments'); // routes to resources  SHOULD NOT BE NOTES
 const middleware = require('./utils/middleware'); // new entrant from config
 const logger = require('./utils/logger');
 
@@ -24,7 +24,7 @@ app.use(express.static('build'));
 app.use(express.json());
 app.use(middleware.requestLogger);
 
-app.use('/api/notes', notesRouter); // should also change
+app.use('/api/apartments', apartmentsRouter); // should also change
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

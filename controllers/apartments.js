@@ -3,8 +3,8 @@ const Apartment = require('../models/apartments');
 
 // get ALL apartments
 apartmentsRouter.get('/', (request, response) => {
-  Apartment.find({}).then((notes) => {
-    response.json(notes);
+  Apartment.find({}).then((apartments) => {
+    response.json(apartments);
   });
 });
 
