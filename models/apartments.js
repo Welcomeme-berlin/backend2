@@ -10,15 +10,10 @@ const apartmentSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  state: {
+  location: {
     type: String,
     required: false,
-    minlength: 5,
-  },
-  street: {
-    type: String,
-    required: false,
-    minlength: 10,
+    minlength: 15,
   },
   zipcode: {
     type: Number,
@@ -27,6 +22,7 @@ const apartmentSchema = new mongoose.Schema({
     maxlength: 5,
   },
   anmeldung: Boolean,
+  furnished: Boolean,
   deposite: Number,
   rent: Number,
 });

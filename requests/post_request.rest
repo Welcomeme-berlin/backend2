@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
     "detail": "A very good apartment in Berlin available from the 20th of october 2030, please pay now or pay no more",
-    "state": "Berlin",
-    "street": "Oranienplatq",
+    "location": "Oranienplatz Berlin",
+    "furnished": true,
     "zipcode": 10999,
     "rent": 25000,
     "anmeldung": false
