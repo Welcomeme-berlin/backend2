@@ -1,0 +1,12 @@
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "root",
+    "firstname": "Superuser",
+    "lastname": "lovebird",
+    "location": "berlin",
+    "phone": 1234567,
+    "email": "samuel@gmail.com",
+    "password": "salainet"
+}
