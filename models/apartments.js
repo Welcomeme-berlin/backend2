@@ -25,6 +25,10 @@ const apartmentSchema = new mongoose.Schema({
   furnished: Boolean,
   deposite: Number,
   rent: Number,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 apartmentSchema.set('toJSON', {

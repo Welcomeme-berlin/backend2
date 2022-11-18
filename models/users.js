@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
   passwordHash: String,
   apartments: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId, //the objectID should reference the Apartment-type document
       ref: 'Apartment',
     },
   ],

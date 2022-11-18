@@ -92,3 +92,5 @@ It has been designed with the following constraints and rules in mind.
 
 For this mongo server, our database is being developed to fit into the embeded design aproach for data storage in mongoDB. This approach is briefly shown in the diagram below. (its still a WIP)
 ![My Image](images/embeded.png)
+
+In stark contrast to the conventions of relational databases, we use referencing as can be seen from the models for Users and Apartments, to store a reference of both documents in each in each other: the Apartment references the user who created it, and the user has an array of references to all of the apartmentss created by them.
