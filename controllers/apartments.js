@@ -1,6 +1,6 @@
 const apartmentsRouter = require('express').Router();
 const Apartment = require('../models/apartments');
-//const multer = require('multer');
+// const multer = require('multer');
 
 // get ALL apartments
 apartmentsRouter.get('/', (request, response) => {
@@ -11,7 +11,7 @@ apartmentsRouter.get('/', (request, response) => {
 
 // add an apartment
 apartmentsRouter.post('/', (request, response, next) => {
-  const body = request.body;
+  const { body } = request;
 
   const apartment = new Apartment({
     detail: body.detail,

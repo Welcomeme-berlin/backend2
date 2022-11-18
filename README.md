@@ -1,32 +1,71 @@
 # Table of contents
 
 1. [Introduction](#introduction)
-2. [Some paragraph](#paragraph1)
-   1. [Sub paragraph](#subparagraph1)
-3. [Another paragraph](#paragraph2)
+2. [Requirements/tools](#requirement)
+   1. [Dependencies](#dependencies)
+3. [Get this server running on your local machine](#start)
+   1. [Signup for a MongoDB Atlas account](#register)
 
-## This is the introduction <a name="introduction"></a>
+## Intro: The why and what of this project<a name="introduction"></a>
 
-Some introduction text, formatted in heading 2 style
+On a grand scale, our ambition was to provide users with a digital platform that enabled them to list apartments, rent apartments, and manage these apartments using a single interface.
+The application code that you find here provides a custom API that grants our client side access to a NoSQL document database running on mongoDB Atlas.
 
-## Some paragraph <a name="paragraph1"></a>
+The rest of this README is intended to guide you on how you can clone and run this server on your local machine.
+A production version is currently hosted on Heroku.
 
-The first paragraph text
+Its important to mention that this is a continuing project, and as such, we are constantly recreating this codebase inorder to consistently serve the needs of our client front. This agile approach was one of the motivations for why we decided to look into document databases.
 
-### Sub paragraph <a name="subparagraph1"></a>
+## Requirements/tools <a name="requirement"></a>
 
-This is a sub paragraph, formatted in heading 3 style
+- All you need is a working laptop/desktop with access to the internet.
+- A mongoDB Atlas account (follow the steps [here](#register) to get a free account)
 
-## Another paragraph <a name="paragraph2"></a>
+### Dependencies for running Dev Server <a name="dependencies"></a>
 
-The second paragraph text
+- Eslint (for code linting.)
+- Jest and supertest (for testing)
+- cors (for cross resource referencing)
+- dotenv (for managing environmental configuration)
+- express
+- mongoose
+- nodemon
 
-### Running the Development Server
+## Get this server running on your local machine <a name="start"></a>
 
-- clone the repository to your local machine with `git clone (url)``
-- Open the cloned folder in your favorite IDE, preferrably VScode.
-- From directory where you have cloned the project run `npm install`to download all of the dependencies
-- Run `npm run dev`to launch the development server on the designated port 3001 on localhost
+#### Running the Development Server
+
+1. clone the repository to your local machine with `git clone (url)`- you can do this from your home directory or ~ cd/home/Desktop
+2. Open the cloned folder in your favorite IDE, preferrably VScode - ~ cd/home/Desktop/backend2
+3. Run `npm install` to install all of the dependencies as listed under the dependency section above
+
+##### Signup for a MongoDB Atlas account
+
+4. Go to `https://www.mongodb.com/atlas/database`and signup for a free Atlas account- you can signin with your gmail.
+5. Select the free option from the 'deploy a cloud database' option window
+6. Pick the cloud provider and location closest to your location, and create the cluster.
+7. Wait for the cluster to be ready for use. This can takes some minutes.(do not continue before the cluster is ready!!)
+8. Create a user credential for your database from the security tab (You would need this to enable the application to talk to your database)
+9. Click on the Network Access tab and select `allow access from anywhere`
+10. Wait for the database deployment page to complete initialization
+11. Click on `Connect`
+12. choose connect your application (The view displays the MongoDB URI, which is the address of the database that we will supply to the MongoDB client library in our .env file)
+13. copy the MongoDB URI.
+
+##### .env
+
+14. Back in the root of your cloned project folder, create a `.env` file
+15. `MONGODB_URI=mongodb+srv://<name>:<password>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority PORT=3001`
+16. Replace the <name> and <password> parameters in the above step with the user credential information you created in step 8 (without the <>)
+17. Ensure all your files are saved.
+18. From your project directory, Run `npm run dev`to launch the server on your local machine, with connection to the database.
+
+##### Making server requests
+
+19. install the VScode JSON server extension from the extension tab section on VScode
+20. Open the request folder in your folder directory and make a POST request to the database to addd listings
+21. test the other requests too.
+22. If the extension does not work for you, use Postman. make requests to : http://localhost:3001/api/apartments
 
 ### Database design approach
 
