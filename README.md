@@ -9,6 +9,7 @@
    3. [Making server requests](#server)
 4. [Database design approach](#design)
    1. [Constraints and Rules](#rules)
+   2. [Embeded Design Approach for Mongo](#embed)
 
 ## Intro: The why and what of this project<a name="introduction"></a>
 
@@ -86,3 +87,8 @@ It has been designed with the following constraints and rules in mind.
 - An apartment can receive many orders from many users.
   All of the above relationships can be seen in the ERD diagram below, and it is from here that the CRD design for MongoDB was built from.
   ![My Image](images/ERD.png)
+
+#### Embeded Design Approach for Mongo <a name="embed">
+
+For this mongo server, our database is being developed to fit into the embeded design aproach for data storage in mongoDB. This approach is briefly shown in the diagram below. (its still a WIP)
+![My Image](images/embeded.png)
