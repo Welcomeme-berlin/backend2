@@ -7,6 +7,8 @@
    1. [Signup for a MongoDB Atlas account](#register)
    2. [Create a .env file](#env)
    3. [Making server requests](#server)
+4. [Database design approach](#design)
+   1. [Constraints and Rules](#rules)
 
 ## Intro: The why and what of this project<a name="introduction"></a>
 
@@ -69,12 +71,12 @@ Its important to mention that this is a continuing project, and as such, we are 
 21. test the other requests too.
 22. If the extension does not work for you, use Postman. make requests to : http://localhost:3001/api/apartments
 
-### Database design approach
+### Database design approach <a name="design">
 
 We originally started with a relational schema design which can be found here and for which we have also started implementing an SQL based server in a different repository : https://lucid.app/lucidchart/60855a90-2be2-4b88-9a7c-76ed234a2445/edit?invitationId=inv_7edaccb1-4a51-4410-9104-f288bdb7493e&referringApp=slack&page=0_0#
 It has been designed with the following constraints and rules in mind.
 
-#### Constraints and Rules:
+#### Constraints and Rules: <a name="rules">
 
 - Every user should be able to list and rent multiple apartments. (A one-to-many relationship between users and apartments.)
 - One apartment owner can own and list multiple apartments. (A one-to-many relationship exists between an apartment owner and apartments.)
