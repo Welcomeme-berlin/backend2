@@ -4,6 +4,7 @@ const cors = require('cors');
 const config = require('./utils/config');
 
 const app = express();
+const usersRouter = require('./controllers/users'); // handles requests made of users
 const apartmentsRouter = require('./controllers/apartments'); // routes to resources  SHOULD NOT BE NOTES
 const middleware = require('./utils/middleware'); // new entrant from config
 const logger = require('./utils/logger');
@@ -25,7 +26,7 @@ app.use(express.json());
 app.use(middleware.requestLogger);
 
 app.use('/api/apartments', apartmentsRouter); // should also change
-
+app.use('/api/users', usersRouter);
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
 

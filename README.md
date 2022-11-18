@@ -35,6 +35,7 @@ Its important to mention that this is a continuing project, and as such, we are 
 - express
 - mongoose
 - nodemon
+- bcrypt
 
 ## Get this server running on your local machine <a name="start"></a>
 
