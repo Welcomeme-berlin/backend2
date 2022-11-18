@@ -5,6 +5,8 @@
    1. [Dependencies](#dependencies)
 3. [Get this server running on your local machine](#start)
    1. [Signup for a MongoDB Atlas account](#register)
+   2. [Create a .env file](#env)
+   3. [Making server requests](#server)
 
 ## Intro: The why and what of this project<a name="introduction"></a>
 
@@ -39,7 +41,7 @@ Its important to mention that this is a continuing project, and as such, we are 
 2. Open the cloned folder in your favorite IDE, preferrably VScode - ~ cd/home/Desktop/backend2
 3. Run `npm install` to install all of the dependencies as listed under the dependency section above
 
-##### Signup for a MongoDB Atlas account
+##### Signup for a MongoDB Atlas account <a name="register"></a>
 
 4. Go to `https://www.mongodb.com/atlas/database`and signup for a free Atlas account- you can signin with your gmail.
 5. Select the free option from the 'deploy a cloud database' option window
@@ -52,15 +54,15 @@ Its important to mention that this is a continuing project, and as such, we are 
 12. choose connect your application (The view displays the MongoDB URI, which is the address of the database that we will supply to the MongoDB client library in our .env file)
 13. copy the MongoDB URI.
 
-##### .env
+##### Create a .env file <a name="env">
 
 14. Back in the root of your cloned project folder, create a `.env` file
-15. `MONGODB_URI=mongodb+srv://<name>:<password>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority PORT=3001`
+15. `MONGODB_URI=mongodb+srv://<name>:<password>@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority PORT=3001`
 16. Replace the <name> and <password> parameters in the above step with the user credential information you created in step 8 (without the <>)
 17. Ensure all your files are saved.
 18. From your project directory, Run `npm run dev`to launch the server on your local machine, with connection to the database.
 
-##### Making server requests
+##### Making server requests <a name="server">
 
 19. install the VScode JSON server extension from the extension tab section on VScode
 20. Open the request folder in your folder directory and make a POST request to the database to addd listings
