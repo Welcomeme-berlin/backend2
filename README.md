@@ -58,7 +58,7 @@ Its important to mention that this is a continuing project, and as such, we are 
 
 14. Back in the root of your cloned project folder, create a `.env` file
 15. `MONGODB_URI=mongodb+srv://<name>:<password>@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority PORT=3001`
-16. Replace the <name> and <password> parameters in the above step with the user credential information you created in step 8 (without the <>)
+16. Replace the name and password parameters in the above step with the user credential information you created in step 8 (without the <>)
 17. Ensure all your files are saved.
 18. From your project directory, Run `npm run dev`to launch the server on your local machine, with connection to the database.
 
@@ -71,15 +71,16 @@ Its important to mention that this is a continuing project, and as such, we are 
 
 ### Database design approach
 
-Because we wanted to retain flexibility and scale at the same time, mongodb was our choice database for the following reasons:
+We originally started with a relational schema design which can be found here and for which we have also started implementing an SQL based server in a different repository : https://lucid.app/lucidchart/60855a90-2be2-4b88-9a7c-76ed234a2445/edit?invitationId=inv_7edaccb1-4a51-4410-9104-f288bdb7493e&referringApp=slack&page=0_0#
+It has been designed with the following constraints and rules in mind.
 
-- Supports a non-uniform schema design and implementation approach for documents in a collection
-- The data in a given document field can be different from those in another document field, even within the same collection
-- It supports automatic scaling. Our database can easily change to accommodate the emerging business needs for our client without having prolonged downtimes
-- Easy implementation
+#### Constraints and Rules:
 
-In our case, we made the decision to store the id's of the apartments created by the user in the user document. Like you would find in the book-author embedded relationship below.
-
-![My Image](images/one.png)
-
-In the above image, books represent our apartments while authors represent our users who create apartment listngs and also rent them. In essence, every apartment must have been added by a user who reserves the right to delete and update the details of such listings.
+- Every user should be able to list and rent multiple apartments. (A one-to-many relationship between users and apartments.)
+- One apartment owner can own and list multiple apartments. (A one-to-many relationship exists between an apartment owner and apartments.)
+- One apartment can not be listed by multiple owners/users (A one-to-many relationship DOES NOT EXIST between apartments and owners/users)
+- A user can be an owner if they list an apartment for rent.
+- renting an apartment is done through ORDERs. A user can create many orders for many apartment, but NOT many orders for same apartment (A one-to-many relationship between apartments and orders.)
+- An apartment can receive many orders from many users.
+  All of the above relationships can be seen in the ERD diagram below, and it is from here that the CRD design for MongoDB was built from.
+  ![My Image](images/ERD.png)
