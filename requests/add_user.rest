@@ -2,11 +2,11 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "root",
-    "firstname": "Superuser",
-    "lastname": "lovebird",
-    "location": "berlin",
-    "phone": 1234567,
-    "email": "samuel@gmail.com",
-    "password": "salainet"
+    "username": "rootfuddle",
+    "firstname": "Simon Johnsonx",
+    "lastname": "Big daddyy",
+    "location": "Lagoss",
+    "phone": 12345678,
+    "email": "samueljackson@gmail.com",
+    "password": "saladandme"
 }
